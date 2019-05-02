@@ -5,9 +5,8 @@ header('Content-Type: application/json');
 
 $SERVER="localhost";
 $USERNAME="root";
-// $PASSWORD="";
+$PASSWORD="";//密码示例
 $DB="zongxuan";
-$PASSWORD="Continue.LJL666";
 
 $con=mysqli_connect($SERVER,$USERNAME,$PASSWORD,$DB);
 if(!con)
