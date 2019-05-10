@@ -102,7 +102,7 @@ function overdue($name)
 }
 
 //判断活动是否截止,截止返回信息
-function DDL($name)
+function isDDL($name)
 {
     if(overdue($name))
     {
@@ -119,6 +119,23 @@ function DDL($name)
         echo json_encode($result);
         exit;
     }
+}
+
+function DDL($name)
+{
+    global $zongxuanDDL;
+    global $sgjnDDL;
+    global $lnczDDL;
+    global $xybkmDDL;
+    
+    if($name == "zongxuan")
+        return $zongxuanDDL;
+    else if($name == "sgjn")
+        return $sgjnDDL;
+    else if($name == "lncz")
+        return $lnczDDL;
+    else if($name == "xybkm")
+        return $xybkmDDL;
 }
 
 
