@@ -28,6 +28,9 @@ if(!$con)
 }
 mysqli_query($con,"SET NAMES utf8mb4");
 
+//设置默认时区
+date_default_timezone_set("Asia/Shanghai");
+
 //判断参数是否合法
 function judge($name)
 {
@@ -74,6 +77,7 @@ function getTime($pattern)
 //判断活动是否截止，截止返回true
 function overdue($name)
 {
+    
     $time = time();
     global $zongxuanDDL;
     global $sgjnDDL;
