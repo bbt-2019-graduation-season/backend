@@ -121,6 +121,7 @@ function isDDL($name)
     }
 }
 
+//获取活动DDL
 function DDL($name)
 {
     global $zongxuanDDL;
@@ -128,14 +129,22 @@ function DDL($name)
     global $lnczDDL;
     global $xybkmDDL;
     
+    $result = [
+        "errcode" => 0,
+        "msg" => "活动时间",
+        "data" => ""
+    ];
+
     if($name == "zongxuan")
-        return $zongxuanDDL;
+        $result["data"]=$zongxuanDDL;
     else if($name == "sgjn")
-        return $sgjnDDL;
+        $result["data"]=$sgjnDDL;
     else if($name == "lncz")
-        return $lnczDDL;
+        $result["data"]=$lnczDDL;
     else if($name == "xybkm")
-        return $xybkmDDL;
+        $result["data"]=$xybkmDDL;
+
+    echo json_encode($result);
 }
 
 

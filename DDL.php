@@ -5,7 +5,7 @@ require "config.php";
 $name=$_POST["name"];
 
 judge($name);
-echo DDL($name);
+DDL($name);
 
 
 
