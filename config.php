@@ -14,6 +14,12 @@ $sgjnDDL = "2019-4-24";
 $lnczDDL = "2019-5-12";
 $xybkmDDL = "2019-5-10";
 
+//活动开始时间示例
+$zongxuanBT = "2019-4-29";
+$sgjnBT = "2019-4-23";
+$lnczBT = "2019-5-10";
+$xybkmBT = "2019-5-7";
+
 //连接服务器
 $con=mysqli_connect($SERVER,$USERNAME,$PASSWORD,$DB);
 if(!$con)
@@ -129,20 +135,40 @@ function DDL($name)
     global $lnczDDL;
     global $xybkmDDL;
     
+    global $zongxuanBT;
+    global $sgjnBT;
+    global $lnczBT;
+    global $xybkmBT;
+
     $result = [
         "errcode" => 0,
         "msg" => "活动时间",
-        "data" => ""
+        "data" => [
+            "beginTime" => "",
+            "DDL" => ""
+        ]
     ];
 
     if($name == "zongxuan")
-        $result["data"]=$zongxuanDDL;
+    {
+        $result["data"]["beginTime"]=$zongxuanBT;
+        $result["data"]["DDL"]=$zongxuanDDL;
+    }
     else if($name == "sgjn")
-        $result["data"]=$sgjnDDL;
+    {
+        $result["data"]["beginTime"]=$sgjnBT;
+        $result["data"]["DDL"]=$sgjnDDL;
+    }
     else if($name == "lncz")
-        $result["data"]=$lnczDDL;
+    {
+        $result["data"]["beginTime"]=$lnczBT;
+        $result["data"]["DDL"]=$lnczDDL;
+    }
     else if($name == "xybkm")
-        $result["data"]=$xybkmDDL;
+    {
+        $result["data"]["beginTime"]=$xybkmBT;
+        $result["data"]["DDL"]=$xybkmDDL;
+    }
 
     echo json_encode($result);
 }
